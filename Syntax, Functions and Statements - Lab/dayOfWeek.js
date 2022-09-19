@@ -1,5 +1,5 @@
 function dayOfWeek(day) {
-
+/*предпочитам суича заради дефолта и защото се подава само една стойност*/
     switch (day) {
         case 'Monday': return 1;
         case 'Tuesday': return 2;
