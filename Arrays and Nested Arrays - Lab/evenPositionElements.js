@@ -1,5 +1,5 @@
 function evenPositionElements(arr) {
-    let res = arr.filter((x, index) =>  //по този начин достъпвам индекса на масива
+    let res = arr.filter((x, index) =>  // по този начин достъпвам индекса на масива
         index % 2 === 0)                // и манипулирам чрез него
         .join(' ');
     console.log(res);
