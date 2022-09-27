@@ -2,8 +2,7 @@ function townToJSON(arr) {
     let res = [];
     arr.shift();
     arr.map(x => {
-        x.replace
-        let [a,town, latitude, longitude] = x.split(/[ ]*[|][ ]*/g);
+        let [a, town, latitude, longitude] = x.split(/[ ]*[|][ ]*/g);
 
         res.push({
             "Town": town,
