@@ -10,13 +10,13 @@ function create(words) {
       divElement.addEventListener('click', onClick);
       parentElement.appendChild(divElement);
 
-   };
+   }
 
    function onClick(element) {
 
       let p = element.target.firstChild;
       p.style.display = "block";
 
-   };
+   }
 
-};
+}

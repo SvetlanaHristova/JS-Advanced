@@ -41,9 +41,9 @@ function solve() {
       trElement.appendChild(lastElement);
 
       parentElement.appendChild(trElement);
-    };
+    }
 
-  };
+  }
 
   function bayProducts() {
     let elements = Array.from(document.querySelectorAll("input")).filter(x => x.checked);
@@ -63,5 +63,5 @@ function solve() {
     output.textContent += `Total price: ${totalPrice.toFixed(2)}\n`;
     output.textContent += `Average decoration factor: ${(sumDecorationFaktor / result.length)}`;
 
-  };
-};
+  }
+}

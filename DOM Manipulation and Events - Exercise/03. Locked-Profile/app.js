@@ -4,7 +4,7 @@ function lockedProfile() {
     for (let profile of profils) {
         profile.getElementsByTagName("button")[0]
             .addEventListener('click', shown);
-    };
+    }
 
     function shown(elements) {
         let currentProfil = elements.target.parentElement;
@@ -12,6 +12,6 @@ function lockedProfile() {
             let hidenElement = currentProfil.querySelector("div");
             hidenElement.style.display = "block";
             currentProfil.lastElementChild.textContent = "Hide it";
-        };
-    };
-};
+        }
+    }
+}

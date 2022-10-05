@@ -9,7 +9,7 @@ function validate() {
             email.classList.remove("error");
         } else {
             email.classList.add("error");
-        };
+        }
 
-    };
-};
+    }
+}

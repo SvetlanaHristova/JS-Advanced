@@ -15,8 +15,8 @@ function solve() {
          productInBag.add(name);
          totalPrice += price;
          textarea.textContent += `Added ${name} for ${price.toFixed(2)} to the cart.\n`;
-      };
-   };
+      }
+   }
    function addResult(element) {
 
       list = Array.from(productInBag).join(', ');
@@ -25,8 +25,8 @@ function solve() {
       document.getElementsByClassName("shopping-cart")[0].removeEventListener('click', addToList);
       document.getElementsByClassName("checkout")[0].removeEventListener('click', addResult);
 
-   };
-};
+   }
+}
 
 
 
