@@ -1,20 +1,21 @@
 function cars(params) {
     let res = {};
-
     let objFunc = {
         create: (name) => { return res[name] = {} },
         inherit: (name, parentName) => {
             res[name] = Object.create(res[parentName])
         },
-        set: (name, key, value) => {  res[name][key] = value },
+        set: (name, key, value) => { res[name][key] = value },
         print: (name) => {
-            let arr = Object.entries(res[name]);
-            arr = arr.reverse().map(x => x.join(':'))
-
+            let arr = [];
+            for (let el in res[name]) {
+                arr.push(`${el}:${res[name][el]}`)
+            }                                       //Object.entries--при наследени елементи май не работи
+            /*let arr = Object.entries(res[name]);  
+            arr = arr.map(x => x.join(':'))*/
             console.log(arr.join(","))
         }
     }
-
     for (let element of params) {
         let [one, two, three, forty] = element.split(' ');
         three == 'inherit'
