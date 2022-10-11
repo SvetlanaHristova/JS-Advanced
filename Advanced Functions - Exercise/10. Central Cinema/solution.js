@@ -1,44 +1,55 @@
 function solve() {
-
-
     let name = document.querySelectorAll('input')[0];
     let hall = document.querySelectorAll('input')[1];
     let ticketPrice = document.querySelectorAll('input')[2];
 
-
-    document.querySelector("#container > button").addEventListener("click", prevent)
+    document.querySelector("#container > button").addEventListener("click", prevent);
 
     function prevent(event) {
         event.preventDefault();
 
         if (name.value && hall.value && Number(ticketPrice.value)) {
+
             let liElement = document.createElement('li');
             liElement.appendChild(createEl('span', name.value));
-            let srongElement=createEl('strong', `Hall: ${hall.value}`)
+            let srongElement = createEl('strong', `Hall: ${hall.value}`);
             liElement.appendChild(srongElement);
             let divElement = document.createElement('div');
             divElement.appendChild(createEl('strong', Number(ticketPrice.value).toFixed(2)));
             divElement.appendChild(createEl('input', "Ticket Sold", 'placeholder'));
-            let buttonArhive = createEl('button', "Arhive")
-            divElement.appendChild(buttonArhive);
-            liElement.appendChild(divElement)
-            document.getElementById("movies").children[1].appendChild(liElement)
+            let buttonArchive = createEl('button', "Archive");
+            divElement.appendChild(buttonArchive);
+            liElement.appendChild(divElement);
+            document.getElementById("movies").children[1].appendChild(liElement);
 
+            let totalPrice = Number(ticketPrice.value);
             name.value = "";
             hall.value = "";
             ticketPrice.value = "";
 
-            buttonArhive.addEventListener("click", arhFunc)
+            buttonArchive.addEventListener("click", arhFunc)
+            document.querySelector("#archive button").addEventListener("click", clearFunc)
 
             function arhFunc() {
-                
-                srongElement.value=`Total amount: ${total price}`
-                document.getElementById("archive").children[1].appendChild(liElement)
-
+                let countTiket = Number(document.querySelector("#movies > ul > li > div > input").value)
+                if (countTiket>=0||countTiket<0) {
+                    //if (countTiket) {
+                    document.getElementById("archive").children[1].appendChild(liElement)
+                    let buttonDelete = document.createElement("button")
+                    buttonDelete.textContent = "Delete"
+                    liElement.appendChild(buttonDelete)
+                    totalPrice *= countTiket
+                    srongElement.innerText = `Total amount: ${totalPrice.toFixed(2)}`
+                    divElement.remove()
+                    buttonDelete.addEventListener("click", () => buttonDelete.parentElement.remove())
+                }
             }
-        } else { console.log('error', name.value, hall.value, ticketPrice.value) }
+        }
     }
 
+    function clearFunc() {
+        Array.from(document.querySelectorAll("#archive li")).map(x => x.remove())
+    }
 
     function createEl(type, content, atributeName) {
         let element = document.createElement(type);
@@ -51,3 +62,5 @@ function solve() {
         return element;
     }
 } 
+
+     
