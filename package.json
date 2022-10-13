@@ -1,0 +1,24 @@
+{
+  "name": "JS-Advanced",
+  "version": "1.0.0",
+  "description": "Модула \"JS Advanced\" разглежда  по-задълбочено функционалността на езика JavaScript, със средата, в която той най-често е изполван и за която е създаден - браузъра. JavaScript като основен синтаксис, както и концепции в програмирането през призмата на езика. Какво е функционално програмиране и какви са разликите с обектно ориентираното програмиране. Изучава в детайли елементите на браузъра, DOM дървото, добавяне, премахване и редактиране на елементите в него. Какво представлява unit testing и какви са основните похвати при тестването на код. Създаване приложение от типа Single Page Applications, изцяло написано на JavaScript, използвайки концепции като Routing и Templating. Използване на бази данни като готова услуга.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SvetlanaHristova/JS-Advanced.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SvetlanaHristova/JS-Advanced/issues"
+  },
+  "homepage": "https://github.com/SvetlanaHristova/JS-Advanced#readme",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0"
+  }
+}
