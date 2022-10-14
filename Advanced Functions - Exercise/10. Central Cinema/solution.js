@@ -22,7 +22,7 @@ function solve() {
             liElement.appendChild(divElement);
             document.getElementById("movies").children[1].appendChild(liElement);
 
-            let totalPrice = Number(ticketPrice.value);
+            //let totalPrice = Number(ticketPrice.value);
             name.value = "";
             hall.value = "";
             ticketPrice.value = "";
@@ -30,16 +30,20 @@ function solve() {
             buttonArchive.addEventListener("click", arhFunc)
             document.querySelector("#archive button").addEventListener("click", clearFunc)
 
-            function arhFunc() {
-                let countTiket = Number(document.querySelector("#movies > ul > li > div > input").value)
-                if (countTiket>=0||countTiket<0) {
-                    //if (countTiket) {
+            function arhFunc(e) {
+                let count = e.target.previousElementSibling.textContent
+
+                if (Number(count) || Number(count) === 0) {
+                    let price = e.target.parentElement.firstElementChild.textContent
+                    let totalPrice = price * count
+
                     document.getElementById("archive").children[1].appendChild(liElement)
+                    srongElement.innerText = `Total amount: ${totalPrice.toFixed(2)}`
                     let buttonDelete = document.createElement("button")
                     buttonDelete.textContent = "Delete"
                     liElement.appendChild(buttonDelete)
-                    totalPrice *= countTiket
-                    srongElement.innerText = `Total amount: ${totalPrice.toFixed(2)}`
+
+
                     divElement.remove()
                     buttonDelete.addEventListener("click", () => buttonDelete.parentElement.remove())
                 }
@@ -61,6 +65,4 @@ function solve() {
         }
         return element;
     }
-} 
-
-     
+}
