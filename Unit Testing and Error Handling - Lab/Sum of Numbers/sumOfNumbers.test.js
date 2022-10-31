@@ -1,5 +1,5 @@
 let { expect } = require("chai");
-let sum = require("./Sum of Numbers");
+let sum = require("./sumOfNumbers");
 
 describe("Testing sum of Numbers", () => {
     
