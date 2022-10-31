@@ -15,9 +15,9 @@ function generateReport() {
             }
 
         }
-        result.push(obj)
+        result.push(obj);
     }
-    textResult.textContent = JSON.stringify(result)
+    textResult.textContent = JSON.stringify(result);
 }
 
 
