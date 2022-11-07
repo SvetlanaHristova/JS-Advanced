@@ -1,50 +1,49 @@
 function solve() {
-    let name = document.querySelectorAll('input')[0];
-    let hall = document.querySelectorAll('input')[1];
-    let ticketPrice = document.querySelectorAll('input')[2];
+    let [name, hall, ticketPrice] = document.querySelectorAll('input');
 
-    document.querySelector("#container > button").addEventListener("click", prevent);
+    document.querySelector("#container button").addEventListener("click", add);
 
-    function prevent(event) {
+    function add(event) {
         event.preventDefault();
 
         if (name.value && hall.value && Number(ticketPrice.value)) {
 
             let liElement = document.createElement('li');
-            liElement.appendChild(createEl('span', name.value));
+            let spanElement = createEl('span', name.value);
+            liElement.appendChild(spanElement);
             let srongElement = createEl('strong', `Hall: ${hall.value}`);
             liElement.appendChild(srongElement);
             let divElement = document.createElement('div');
-            divElement.appendChild(createEl('strong', Number(ticketPrice.value).toFixed(2)));
-            divElement.appendChild(createEl('input', "Ticket Sold", 'placeholder'));
+            let strongEl = createEl('strong', Number(ticketPrice.value).toFixed(2));
+            divElement.appendChild(strongEl);
+            let newInput = createEl('input', "Ticket Sold", 'placeholder');
+            divElement.appendChild(newInput);
             let buttonArchive = createEl('button', "Archive");
             divElement.appendChild(buttonArchive);
             liElement.appendChild(divElement);
             document.getElementById("movies").children[1].appendChild(liElement);
 
-            //let totalPrice = Number(ticketPrice.value);
             name.value = "";
             hall.value = "";
             ticketPrice.value = "";
 
-            buttonArchive.addEventListener("click", arhFunc)
-            document.querySelector("#archive button").addEventListener("click", clearFunc)
+            buttonArchive.addEventListener("click", arhFunc);
+            document.querySelector("#archive button").addEventListener("click", clearFunc);
 
             function arhFunc(e) {
-                let count = e.target.previousElementSibling.textContent
+                let count = e.target.parentElement.children[1].value;
 
-                if (Number(count) || Number(count) === 0) {
-                    let price = e.target.parentElement.firstElementChild.textContent
-                    let totalPrice = price * count
+                if (Number(count) > 0 || count === "0") {
+                    let price = e.target.parentElement.children[0].textContent;
+                    let totalPrice = price * count;
+                    console.log(count, price, totalPrice)
 
                     document.getElementById("archive").children[1].appendChild(liElement)
                     srongElement.innerText = `Total amount: ${totalPrice.toFixed(2)}`
-                    let buttonDelete = document.createElement("button")
-                    buttonDelete.textContent = "Delete"
+                    let buttonDelete = createEl("button", "Delete")
                     liElement.appendChild(buttonDelete)
-
-
                     divElement.remove()
+
                     buttonDelete.addEventListener("click", () => buttonDelete.parentElement.remove())
                 }
             }
