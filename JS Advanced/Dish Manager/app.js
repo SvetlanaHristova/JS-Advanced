@@ -7,6 +7,7 @@ function solve() {
   let editButton = createEl('button', 'Edit', 'edit-btn');
   let completeButton = createEl('button', 'Mark as complete', 'complete-btn');
   let info = {};
+
   submitButton.addEventListener('click', addInProgress);
   clearButton.addEventListener('click', clear);
   editButton.addEventListener('click', edit);
@@ -56,9 +57,9 @@ function solve() {
     document.querySelectorAll('input[name]')[1].value = info.lastName;
     document.querySelectorAll('input[name]')[2].value = info.age;
     document.querySelector('textarea[name]').value = info.dishDescription;
-    document.getElementById("genderSelect").options[document.getElementById("genderSelect").selectedIndex] = info.gender == 'Male' ?
-      document.getElementById("genderSelect").options[0]
-      : document.getElementById("genderSelect").options[1]
+    info.gender.textContent == 'Male' ?
+     document.getElementById("genderSelect").selectedIndex = 0 
+     : document.getElementById("genderSelect").selectedIndex = 1;
     document.getElementById("progress-count").textContent = Number(document.getElementById("progress-count").textContent) - 1;
     document.getElementsByClassName('each-line')[0].remove();
   }
@@ -66,11 +67,12 @@ function solve() {
     document.querySelector('#finished').appendChild(document.getElementsByClassName('each-line')[0]);
     editButton.remove();
     completeButton.remove();
-    document.getElementById("progress-count").textContent = Number(document.getElementById("progress-count").textContent) + 1;
+    document.getElementById("progress-count").textContent = Number(document.getElementById("progress-count").textContent) - 1;
   }
 
   function clear() {
     document.getElementsByClassName('each-line')[0].remove();
+    document.getElementById("progress-count").textContent = 0;
   }
 
   function createEl(type, content, classContent) {
