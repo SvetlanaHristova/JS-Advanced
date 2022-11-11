@@ -41,7 +41,6 @@ function solve() {
 
 
     function edit(e) {
-        console.log('yes');
         let parentEl = e.currentTarget.parentElement.parentElement;
         fNameElements.value = parentEl.children[0].textContent;
         lNamesElements.value = parentEl.children[1].textContent;
