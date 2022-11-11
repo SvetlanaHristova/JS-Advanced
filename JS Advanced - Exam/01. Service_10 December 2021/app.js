@@ -3,7 +3,7 @@ window.addEventListener('load', solve);
 function solve() {
     let descriptionElement = document.getElementById("description");
     let [nameElement, phoneElement] = document.querySelectorAll('input');
-    let type = document.getElementById("type-product")
+    let type = document.getElementById("type-product");
     document.querySelectorAll("form button")[0].addEventListener('click', send);
 
     function send(e) {
@@ -16,7 +16,7 @@ function solve() {
         }
         let sectionElement = document.getElementById("received-orders");
         let divElement = createEl('div', '', 'container');
-        let h2Element = createEl('h2', `Product type for repair: ${type.options[type.selectedIndex].text}`)
+        let h2Element = createEl('h2', `Product type for repair: ${type.options[type.selectedIndex].text}`);
         let h3Element = createEl('h3', `Client information: ${nameElement.value}, ${phoneElement.value}`);
         let h4Element = createEl('h4', `Description of the problem: ${descriptionElement.value}`);
         let startElement = createEl('button', 'Start repair', 'start-btn');
@@ -66,43 +66,3 @@ function solve() {
         return element;
     }
 }
-/*
-console.log('yes')
-
- let [] = document.querySelectorAll('input');
-
- document.getElementById(".....").addEventListener('click', func1);
-    function func1(e) {
-        e.preventDefault();
-    
-    }
-
-    if (_____.value === "" || (_____.value === "" || (_____.value === "" ||
-        _____.value === "" || _____.value === "" || _____.value === ""){
-            return;
-        }
-
-        .appendChild(tdFNameElements);
-        .textContent
-         Array.from(_________).map(x => x.value = "")
-    
-    function edit(e) {
-        let parentEl = e.currentTarget.parentElement;     
-        = parentEl.children[0].textContent;
-
-        parentEl.remove();
-    }
-
-     function createEl(type, content, classContent) {
-        let element = document.createElement(type);
-
-        if (content) {
-            element.textContent = content;
-        }
-
-        if (classContent) {
-            element.className = classContent;
-        }
-        return element;   
-    }
- */
