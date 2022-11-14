@@ -19,13 +19,10 @@ function solution() {
         liElement.appendChild(discardBtn);
         parentElement.appendChild(liElement);
         inputElement.value = "";
-        let arr = Array.from(document.querySelectorAll('section ul li'))
-            .map(x => x.firstChild.textContent)
-            .sort((a, b) => (a).localeCompare(b));
 
-        for (let i = 0; i < arr.length; i++) {
-            document.querySelectorAll('section ul')[0].children[i].firstChild.textContent = arr[i];
-        }
+        let arr = Array.from(parentElement.children);
+            arr.sort((a, b) => (a.textContent).localeCompare(b.textContent))
+            .forEach(x=>parentElement.appendChild(x));
 
         sendBtn.addEventListener('click', sendFunc);
         discardBtn.addEventListener('click', discardFunc);
@@ -54,34 +51,5 @@ function solution() {
         }
         return element;
     }
-
 }
-/*
-console.log('yes')
 
- let [] = document.querySelectorAll('input');
-
- document.getElementById(".....").addEventListener('click', func1);
-    function func1(e) {
-        e.preventDefault();
-    
-    }
-
-    if (_____.value === "" || (_____.value === "" || (_____.value === "" ||
-        _____.value === "" || _____.value === "" || _____.value === ""){
-            return;
-        }
-
-        .appendChild(tdFNameElements);
-        .textContent
-         Array.from(_________).map(x => x.value = "")
-    
-    function edit(e) {
-        let parentEl = e.currentTarget.parentElement;     
-        = parentEl.children[0].textContent;
-
-        parentEl.remove();
-    }
-
-    
- */
