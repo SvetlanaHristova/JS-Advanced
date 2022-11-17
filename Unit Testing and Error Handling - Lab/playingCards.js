@@ -1,4 +1,24 @@
-function playingCards(faces, suits) {
+function playingCards(face, suit) {
+    let faces = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'D', 'K', 'A'];
+    if (faces.includes(face) == false) {
+        throw new Error();
+    }
+    let suits = {
+        'S': '\u2660',
+        'H': '\u2665',
+        'D': '\u2666',
+        'C': '\u2663'
+    };
+    let card = {
+        face,
+        suit: suits[suit],
+        toString() {
+            return this.face + this.suit;
+        }
+    };
+    return card;
+}
+/*function playingCards(faces, suits) {
     if (faces !== faces.toUpperCase()) {
         throw new Error;
     }
@@ -24,7 +44,7 @@ function playingCards(faces, suits) {
 
     return card;
 
-}
+}*/
 console.log(playingCards('A', 'S'));
 console.log(playingCards('10', 'H'));
 console.log(playingCards('1', 'C'));

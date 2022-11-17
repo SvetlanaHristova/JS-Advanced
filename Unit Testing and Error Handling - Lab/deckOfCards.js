@@ -1,4 +1,48 @@
 function printDeckOfCards(cards) {
+    let res = [];
+
+    for (let card of cards) {
+        let face = card.slice(0, -1);
+        let suit = card.slice(-1);
+
+        try {
+            res.push(createCard(face, suit));
+        } catch (err) {
+            res = [`Invalid card: ${card}`];
+        }
+
+    }
+
+
+    
+    console.log(res.join(' '));
+
+    function createCard(faces, suits) {
+        let facesValid = ['2', '3', '4', '5', '6', '7', '8', '9', '10', "J", "Q", "K", "A"];
+        let suitsValid = ['S', 'H', 'D', 'C'];
+        let objSuits = {
+            'S': '\u2660',
+            'H': '\u2665',
+            'D': '\u2666',
+            'C': '\u2663'
+        };
+        if (!facesValid.includes(faces)) {
+            throw new Error(`Invalid card: ${card}`);
+        }
+        if (!suitsValid.includes(suits)) {
+            throw new Error(`Invalid card: ${card}`);
+        }
+        let card = {
+            faces: faces,
+            suits: objSuits[suits],
+            toString() {
+                return this.faces + this.suits;
+            }
+        };
+        return card.toString();
+    }
+}
+/*function printDeckOfCards(cards) {
     let facesValid = ['2', '3', '4', '5', '6', '7', '8', '9', '10', "J", "Q", "K", "A"];
     let suitsValid = ['S', 'H', 'D', 'C'];
     let objSuits = {
