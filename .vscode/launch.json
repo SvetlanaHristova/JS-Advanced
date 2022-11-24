@@ -29,7 +29,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\Unit Testing and Error Handling - Lab\\Check for Symmetry\\checkForSymmetry.test.js"
+            "program": "${file}"
         }
     ]
 }
