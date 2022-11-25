@@ -46,8 +46,8 @@ describe('testing mathEnforcer', () => {
             expect(mathEnforcer.subtractTen(-30)).to.equal(-40);
         });
         it('should be floating-point numbers', () => {
-        expect(mathEnforcer.subtractTen(30.6)).to.equal(20.6);
-    });
+            expect(mathEnforcer.subtractTen(30.6)).to.equal(20.6);
+        });
     });
     describe('testing sum', () => {
         it('should be be undefined with num1 ', () => {
