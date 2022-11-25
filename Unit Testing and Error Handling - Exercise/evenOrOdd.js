@@ -18,10 +18,10 @@ describe('testing isOddOrEven ', () => {
     it('should be undefined if array', () => {
         expect(isOddOrEven(['d'])).to.be.undefined;
     });
-    it('should be undefined if odd', () => {
+    it('should be odd if string is odd', () => {
         expect(isOddOrEven('4sdf3')).to.equal("odd");
     });
-    it('should be undefined if even', () => {
+    it('should be even if string is even', () => {
         expect(isOddOrEven('sdf3')).to.equal("even");
     });
 })
