@@ -1,5 +1,5 @@
 let { expect } = require("chai");
-let ChristmasMovies = require("./02. Christmas Movies_Resources"); //100/100
+let ChristmasMovies = require("./02. Christmas Movies_Resources"); 
 
 describe("Tests Functionality", function () {
     let instance;
