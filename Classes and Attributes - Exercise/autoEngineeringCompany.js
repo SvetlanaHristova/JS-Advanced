@@ -3,7 +3,7 @@ function autoEngineeringCompany(arr) {
     for (let element of arr) {
         let [carBrand, carModel, producedCars] = element.split(' | ');
         if (!carRegister.hasOwnProperty(carBrand)) {
-            carRegister[carBrand] = {}
+            carRegister[carBrand] = {};
         }
         carRegister[carBrand].hasOwnProperty(carModel) ?
             carRegister[carBrand][carModel] += Number(producedCars)
