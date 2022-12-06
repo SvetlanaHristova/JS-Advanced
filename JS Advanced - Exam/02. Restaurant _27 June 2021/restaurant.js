@@ -11,13 +11,10 @@ class Restaurant {
             productQuantity = Number(productQuantity);
             productTotalPrice = Number(productTotalPrice);
             if (this.budgetMoney >= productTotalPrice) {
-                if (this.stockProducts.hasOwnProperty(productName)) {
-                    this.stockProducts[productName] += productQuantity;
-                    this.budgetMoney -= productTotalPrice;
-                } else {
-                    this.stockProducts[productName] = Number(productQuantity);
-                    this.budgetMoney -= productTotalPrice;
-                }
+                this.stockProducts.hasOwnProperty(productName) ?
+                    this.stockProducts[productName] += productQuantity
+                    : this.stockProducts[productName] = productQuantity;
+                this.budgetMoney -= productTotalPrice;
                 this.history.push(`Successfully loaded ${productQuantity} ${productName}`);
             } else {
                 this.history.push(`There was not enough money to load ${productQuantity} ${productName}`);
@@ -27,10 +24,11 @@ class Restaurant {
     }
 
     addToMenu(meal, neededProducts, price) {
-        if (this.menu.hasOwnProperty() == meal) {
-            return `The ${meal} is already in the our menu, try something different`;
+        price=Number(price);
+        if (this.menu.hasOwnProperty(meal)) {
+            return `The ${meal} is already in the our menu, try something different.`;
         }
-        this.menu[meal] = { "products": neededProducts, "price": Number(price) };
+        this.menu[meal] = { "products": neededProducts, "price":price };
         return Object.keys(this.menu).length == 1 ?
             `Great idea! Now with the ${meal} we have 1 meal in the menu, other ideas?`
             : `Great idea! Now with the ${meal} we have ${Object.keys(this.menu).length} meals in the menu, other ideas?`;
@@ -48,7 +46,7 @@ class Restaurant {
     }
 
     makeTheOrder(meal) {
-        if (Object.hasOwnProperty(meal)) {
+        if (!this.menu.hasOwnProperty(meal)) {
             return `There is not ${meal} yet in our menu, do you want to order something else?`
         }
 
@@ -63,6 +61,7 @@ class Restaurant {
             let [productName, productQuantity] = element.split(' ');
             this.stockProducts[productName] -= Number(productQuantity);
         }
+        this.budgetMoney+=this.menu[meal].price;
         return `Your order (${meal}) will be completed in the next 30 minutes and will cost you ${this.menu[meal].price}.`
     }
 }
